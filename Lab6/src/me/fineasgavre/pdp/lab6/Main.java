@@ -31,13 +31,18 @@ public class Main {
                         new ArrayList<>(List.of(1, 4))
                 )));
 
+
+        var randomGraph = new Graph(10);
+
+
         final var shouldFindFinder = new HamiltonianCycleFinder(graphWithHamiltonianCycle);
         final var noFindFinder = new HamiltonianCycleFinder(graphWithoutHamiltonianCycle);
+        final var randomGraphFinder = new HamiltonianCycleFinder(randomGraph);
 
         runAndTime("Hamiltonian cycle finder that should find a cycle", shouldFindFinder::startSearch);
         runAndTime("Hamiltonian cycle finder that should NOT find a cycle", noFindFinder::startSearch);
+        runAndTime("Hamiltonian cycle finder that can maybe find a cycle", randomGraphFinder::startSearch);
     }
-
     private static void runAndTime(String action, Runnable runnable) {
         logger.info("Started running " + action);
 

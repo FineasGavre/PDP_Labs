@@ -13,6 +13,7 @@ public class ConsistencyCheckerTask extends TimerTask {
 
         System.out.println("Preparing to run consistency checker...");
         var result = consistencyChecker.runChecker();
+
         System.out.println("Checker returned result " + result + ".");
     }
 

@@ -36,7 +36,6 @@ public class Main {
                         readyToSendProductCondition.await();
                     }
 
-
                     partialResult = vector1.get(i) * vector2.get(i);
 
                     logger.log(Level.INFO, "[PRODUCER] Sending Partial Product: {0}.", partialResult);
