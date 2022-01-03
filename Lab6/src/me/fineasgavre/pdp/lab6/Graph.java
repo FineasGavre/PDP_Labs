@@ -9,15 +9,7 @@ public class Graph {
     private static final Random random = new Random();
 
     private final List<Integer> nodes;
-    private List<List<Integer>> edges;
-
-    public Graph(int nodes) {
-        this.nodes = new ArrayList<>();
-        for (var i = 0; i < nodes; ++i) {
-            this.nodes.add(i);
-        }
-        generateEdges();
-    }
+    private final List<List<Integer>> edges;
 
     public Graph(List<Integer> nodes, List<List<Integer>> edges) {
         this.nodes = nodes;
@@ -32,22 +24,6 @@ public class Graph {
 
     public List<Integer> edgesFromNode(int node) {
         return edges.get(node);
-    }
-
-    public void generateEdges() {
-        edges = new ArrayList<>();
-        for (var ignored : nodes) {
-            edges.add(new ArrayList<>());
-        }
-
-        var size = Math.pow(nodes.size(), 2);
-
-        for (int i = 0; i < size / 2; i++) {
-            int nodeA = random.nextInt(nodes.size());
-            int nodeB = random.nextInt(nodes.size());
-
-            addEdge(nodeA, nodeB);
-        }
     }
 
     public List<Integer> getNodes() {
